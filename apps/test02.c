@@ -1,1 +1,8 @@
-/* Test how disks are created and mounted */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(){
+
+
+}
