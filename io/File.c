@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int filereader(){
-  return 0;
+int main(){
+
+
 }
