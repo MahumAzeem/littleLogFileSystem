@@ -31,7 +31,7 @@ int main(){
 
   memcpy(buffer, &magic, sizeof(magic));
   memcpy(buffer + sizeof(int) * 1, &blocks, sizeof(int));
-  memcpy(buffer + sizeof(int) * 2, &ionodes sizeof(int));
+  memcpy(buffer + sizeof(int) * 2, &ionodes, sizeof(int));
 
   writeBlock(disk, 0, buffer);
   free(buffer);
