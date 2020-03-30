@@ -9,10 +9,10 @@
 #define MAGIC_NUMBER 42
 #define IONODES 128 //>>>what is this supposed to be?
 
-void writeBlock(FILE* disk, int blockNumber, char* data){
+void writeBlock(FILE* vdisk, int blockNumber, char* data){
   FILE *disk = fopen(VDISK, "rb+");
   fseek(disk, blockNumber * BLOCK_SIZE, SEEK_SET);
-  fwrite(data, BLOCK_SIZE, 1, VDISK);
+  fwrite(data, BLOCK_SIZE, 1, disk);
 }
 
 void readBlock(FILE* disk, int blockNum, char* data){
