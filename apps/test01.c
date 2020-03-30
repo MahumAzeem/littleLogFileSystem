@@ -6,7 +6,9 @@
 
 
 int main(){
-  //InitLLFS();
+  InitLLFS();
+  FILE* disk;
+  writeBlock(disk, 2, "hello");
   return EXIT_SUCCESS;
 
 }

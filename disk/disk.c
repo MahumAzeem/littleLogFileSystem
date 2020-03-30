@@ -10,13 +10,13 @@
 #define IONODES 128 //>>>what is this supposed to be?
 
 void writeBlock(FILE* disk, int blockNumber, char* data){
-  fseek(disk, blockNumber * BLOCK_SIZE, SEEK_SET);
-  fwrite(data, BLOCK_SIZE, 1, disk);
+  fseek(VDISK, blockNumber * BLOCK_SIZE, SEEK_SET);
+  fwrite(data, BLOCK_SIZE, 1, VDISK);
 }
 
 void readBlock(FILE* disk, int blockNum, char* data){
-  fseek(disk, blockNum * BLOCK_SIZE, SEEK_SET);
-  fwrite(data, BLOCK_SIZE, 1, disk); //overwrites existing data
+  fseek(VDISK, blockNum * BLOCK_SIZE, SEEK_SET);
+  fwrite(data, BLOCK_SIZE, 1, VDISK); //overwrites existing data
 }
 
 void InitLLFS(){
