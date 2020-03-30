@@ -8,7 +8,7 @@
 int main(){
   InitLLFS();
   FILE *test = fopen("test.txt", "rb+");
-  writeBlock(disk, 2, test);
+  writeBlock(disk, 2, "hello");
   return EXIT_SUCCESS;
 
 }
