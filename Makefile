@@ -9,7 +9,7 @@ $(info TESTS are $(TESTS))
 
 all: $(TESTS) disk.o file.o
 
-test%: apps/test%.c file.o
+test%: apps/test%.c file.o disk.o
 	$(CC) $(CFLAGS) -o apps/$@ $^
 
 disk.o: disk/disk.c disk/disk.h
