@@ -6,6 +6,7 @@
 
 
 int main(){
-  InitLLFS();
+  //InitLLFS();
+  return EXIT_SUCCESS;
 
 }
