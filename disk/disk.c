@@ -16,7 +16,7 @@ void writeBlock(FILE* disk, int blockNumber, char* data){
 
 void readBlock(FILE* disk, int blockNum, char* data){
   fseek(disk, blockNum * BLOCK_SIZE, SEEK_SET);
-  fwrite(data, BLOCK_SIZE, 1 disk); //overwrites existing data
+  fwrite(data, BLOCK_SIZE, 1, disk); //overwrites existing data
 }
 
 void InitLLFS(){
