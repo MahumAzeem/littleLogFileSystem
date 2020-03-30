@@ -14,10 +14,14 @@ void writeBlock(FILE* disk, int blockNumber, char* data){
   fwrite(data, BLOCK_SIZE, 1, disk);
 }
 
-int main(){
+void readBlock(FILE* disk, int blockNum, char* data){
+  fseek(disk, blockNum * BLOCK_SIZE, SEEK_SET);
+  fwrite(data, BLOCK_SIZE, 1 disk); //overwrites existing data
+}
 
-  FILE *disk;
-  disk = fopen(VDISK, "rb+"); //TODO: What mode to open in
+void InitLLFS(){
+
+  FILE *disk = fopen(VDISK, "ab+");
   char *init = calloc(BLOCK_SIZE*NUM_BLOCKS, 1);
   fwrite(init, BLOCK_SIZE * NUM_BLOCKS, 1, disk);
   free(init);
@@ -25,6 +29,7 @@ int main(){
 
   disk = fopen(VDISK, "rb+");
 
+  // Initialize Block 0
   char* buffer;
   buffer = (char *) malloc(BLOCK_SIZE);
   int magic = MAGIC_NUMBER;
