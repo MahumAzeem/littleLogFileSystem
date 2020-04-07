@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 /******Disk Params******/
 #define BLOCK_SIZE 512 //bytes
@@ -12,15 +13,15 @@
 bool writeBlock(int blockNumber, char *data, int offset, int data_size){
   FILE *disk = fopen(VDISK, "rb+");
   fseek(disk, blockNumber * BLOCK_SIZE + offset, SEEK_SET);
-  int length = content_length;
+  int length = data_size;
 
   if(content_length > BLOCK_SIZE - offset) {
-      int difference = content_length - (BLOCK_SIZE - offset);
-      fprintf(stderr, "WARNING: Truncated content by %d bytes on disk write to block %d\n", difference, block_number);
-      length = BYTES_PER_BLOCK - offset;
+      int difference = data_size - (BLOCK_SIZE - offset);
+      fprintf(stderr, "WARNING: Truncated content by %d bytes on disk write to block %d\n", difference, blockNumber);
+      length = BLOCK_SIZE - offset;
   }
 
-  int fwrite_result = fwrite(data, data_size, 1, disk);
+  int fwrite_result = fwrite(data, length, 1, disk);
   if(fwrite_result <= 0){
     fprintf(stderr, "FAILURE: fwrite() failed to write to the disk.\n");
     return false;
