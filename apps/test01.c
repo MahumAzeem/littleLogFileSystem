@@ -46,6 +46,7 @@ int main(){
     //Check if same
     if (result_read){
       printf("Read Successful :).\n");
+            printf("---> TEST 1 PASSED <---");
       //printf("Read: %s", buffer);
       // for(int i = 0; i < 150; i++) {
       //   if(data[i] != buffer[i]) {
@@ -53,7 +54,7 @@ int main(){
       //       return EXIT_SUCCESS;
       //   }//if
       // }//for
-      printf("---> TEST 1 PASSED <---");
+
     } else{
       printf("TEST FAILED --> Read failed :(\n");
       return EXIT_SUCCESS;
