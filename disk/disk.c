@@ -10,7 +10,7 @@
 #define MAGIC_NUMBER 42
 #define IONODES 128 //>>>what is this supposed to be?
 
-typedef enum {true, false} bool;
+
 
 bool writeBlock(int blockNumber, char *data, int offset, int data_size){
   FILE *disk = fopen(VDISK, "rb+");
