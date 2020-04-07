@@ -8,6 +8,8 @@
 #define VDISK "vdisk" //disk location
 #define MAGIC_NUMBER 42
 #define IONODES 128 //>>>what is this supposed to be?
+#define TRUE  1
+#define FALSE 0
 
 _Bool writeBlock(int blockNumber, char *data, int offset, int data_size){
   FILE *disk = fopen(VDISK, "rb+");
@@ -23,11 +25,11 @@ _Bool writeBlock(int blockNumber, char *data, int offset, int data_size){
   int fwrite_result = fwrite(data, length, 1, disk);
   if(fwrite_result <= 0){
     fprintf(stderr, "FAILURE: fwrite() failed to write to the disk.\n");
-    return false;
+    return FALSE;
   }
   fflush(disk);
   fclose(disk);
-  return true;
+  return TRUE;
 }
 
 void readBlock(FILE* disk, int blockNum, char* data){
