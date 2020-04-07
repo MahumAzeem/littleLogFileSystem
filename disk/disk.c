@@ -8,8 +8,6 @@
 #define VDISK "vdisk" //disk location
 #define MAGIC_NUMBER 42
 #define IONODES 128 //>>>what is this supposed to be?
-(int block_number, void *content, int offset, int content_length,
-         FILE *alt_disk)
 
 bool writeBlock(int blockNumber, char *data, int offset, int data_size){
   FILE *disk = fopen(VDISK, "rb+");
@@ -58,7 +56,7 @@ void InitLLFS(){
   memcpy(buffer + sizeof(int) * 1, &blocks, sizeof(int));
   memcpy(buffer + sizeof(int) * 2, &ionodes, sizeof(int));
 
-  writeBlock(disk, 0, buffer);
+  writeBlock(0, buffer, 0 , BLOCK_SIZE);
   free(buffer);
   fclose(disk);
 }
