@@ -27,7 +27,7 @@ bool writeBlock(int blockNumber, char *data, int offset, int data_size){
     return false;
   }
   fflush(disk);
-  fclose(fp);
+  fclose(disk);
   return true;
 }
 
