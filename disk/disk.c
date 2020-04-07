@@ -38,7 +38,7 @@ _Bool readBlock(int blockNum, char* data){
 
   fseek(disk, blockNum * BLOCK_SIZE, SEEK_SET);
   int fread_result = fread(data, BLOCK_SIZE, 1, disk);
-  printf("------------>read block");
+  printf("------------>read block: %s\n",data);
   if(fread_result <= 0){
     fprintf(stderr, "FAILURE: fread() failed to read from the disk.\n");
     return FALSE;
