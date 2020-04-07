@@ -15,7 +15,7 @@ bool writeBlock(int blockNumber, char *data, int offset, int data_size){
   fseek(disk, blockNumber * BLOCK_SIZE + offset, SEEK_SET);
   int length = data_size;
 
-  if(content_length > BLOCK_SIZE - offset) {
+  if(data_size > BLOCK_SIZE - offset) {
       int difference = data_size - (BLOCK_SIZE - offset);
       fprintf(stderr, "WARNING: Truncated content by %d bytes on disk write to block %d\n", difference, blockNumber);
       length = BLOCK_SIZE - offset;
