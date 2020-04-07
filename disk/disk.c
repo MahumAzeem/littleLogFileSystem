@@ -5,7 +5,7 @@
 /******Disk Params******/
 #define BLOCK_SIZE 512 //bytes
 #define NUM_BLOCKS 4096 //on Disk, numbered 0 to 4095
-#define VDISK "vdisk" //disk location
+#define VDISK "../disk/vdisk" //disk location
 #define MAGIC_NUMBER 42
 #define IONODES 128 //>>>what is this supposed to be?
 #define TRUE  1
