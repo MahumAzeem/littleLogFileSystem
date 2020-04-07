@@ -7,8 +7,20 @@
 
 int main(){
   InitLLFS();
-  FILE *test = fopen("test.txt", "rb+");
-  writeBlock(test, 2, "hello");
+  printf("\n------Test01------\n");
+
+  short block = 100
+  char data[150];
+
+  //FILE *test = fopen("test.txt", "rb+");
+  bool result = writeBlock(block, data, 0, 150);
+
+  if (result){
+    fprintf("Test 1 passe :).\n");
+  }
+  else{
+    fprintf("Test 1 failed :(\n");
+  }
   return EXIT_SUCCESS;
 
 }

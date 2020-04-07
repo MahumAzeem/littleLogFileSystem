@@ -29,7 +29,7 @@ typedef struct inode {
 /*Resource used: http://www.mathcs.emory.edu/~cheung/Courses/255/Syllabus/1-C-intro/bit-array.html
   Mapping function:
   Element with index k in the bit vector is:
-  Bit position k%8 in the vectoru element with index k/8S
+  Bit position k%8 in the vector element with index k/8S
 */
 typedef struct bit_vector {
     unsigned char vector[BITS_PER_BIT_VECTOR]; //1 byte per element, 4096 elements -> 4096 bytes

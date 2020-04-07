@@ -8,11 +8,28 @@
 #define VDISK "vdisk" //disk location
 #define MAGIC_NUMBER 42
 #define IONODES 128 //>>>what is this supposed to be?
+(int block_number, void *content, int offset, int content_length,
+         FILE *alt_disk)
 
-void writeBlock(FILE* vdisk, int blockNumber, char* data){
+bool writeBlock(int blockNumber, char *data, int offset, int data_size){
   FILE *disk = fopen(VDISK, "rb+");
-  fseek(disk, blockNumber * BLOCK_SIZE, SEEK_SET);
-  fwrite(data, BLOCK_SIZE, 1, disk);
+  fseek(disk, blockNumber * BLOCK_SIZE + offset, SEEK_SET);
+  int length = content_length;
+
+  if(content_length > BLOCK_SIZE - offset) {
+      int difference = content_length - (BLOCK_SIZE - offset);
+      fprintf(stderr, "WARNING: Truncated content by %d bytes on disk write to block %d\n", difference, block_number);
+      length = BYTES_PER_BLOCK - offset;
+  }
+
+  int fwrite_result = fwrite(data, data_size, 1, disk);
+  if(fwrite_result <= 0){
+    fprintf(stderr, "FAILURE: fwrite() failed to write to the disk.\n");
+    return false;
+  }
+  fflush(disk);
+  fclose(fp);
+  return true;
 }
 
 void readBlock(FILE* disk, int blockNum, char* data){
