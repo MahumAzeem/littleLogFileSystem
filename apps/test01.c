@@ -26,7 +26,7 @@ int main(){
     if (result_read){
       printf("Read Successful :).\n");
       for(int i = 0; i < 150; i++) {
-        if(result[i] != oracle[i]) {
+        if(data[i] != buffer[i]) {
             printf("Test Failed: Data modified while reading/writing :(\n");
             return EXIT_SUCCESS;
         }//if

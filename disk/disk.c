@@ -32,7 +32,7 @@ _Bool writeBlock(int blockNumber, char *data, int offset, int data_size){
   return TRUE;
 }
 
-_Bool readBlock(int blockNum, char* data){
+_Bool readBlock(int blockNum, void* data){
   FILE *disk = fopen(VDISK, "rb");
 
 
