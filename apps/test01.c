@@ -17,7 +17,7 @@ int main(){
     }
 
   //FILE *test = fopen("test.txt", "rb+");
-  bool result = writeBlock(block, data, 0, 150);
+  _Bool result = writeBlock(block, data, 0, 150);
 
   if (result){
     printf("Test 1 passed :).\n");
