@@ -11,16 +11,27 @@ int main(){
 
   int block = 100;
   char data[150];
+  char buffer[150];
   char c = 'a';
     for(int i = 0; i < 150; i++) {
         data[i] = c++;
     }
 
-  //FILE *test = fopen("test.txt", "rb+");
-  _Bool result = writeBlock(block, data, 0, 150);
+    //Write data to disk
+  _Bool result_write = writeBlock(block, data, 0, 150);
+  _Bool result_read =readBlock(block, buffer);
 
-  if (result){
-    printf("Test 1 passed :).\n");
+  if (result_write){
+    printf("Write Successful :).\n");
+    if (result_read){
+      printf("Read Successful :).\n");
+      for(int i = 0; i < 150; i++) {
+        if(result[i] != oracle[i]) {
+            printf("Test Failed: Data modified while reading/writing :(\n");
+            return EXIT_SUCCESS;
+        }//if
+      }//for
+    }//result_read if
   }
   else{
     printf("Test 1 failed :(\n");

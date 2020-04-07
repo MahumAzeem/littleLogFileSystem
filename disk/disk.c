@@ -32,9 +32,20 @@ _Bool writeBlock(int blockNumber, char *data, int offset, int data_size){
   return TRUE;
 }
 
-void readBlock(FILE* disk, int blockNum, char* data){
+_Bool readBlock(int blockNum, char* data){
+  FILE *disk = fopen(VDISK, "rb");
+
+
   fseek(disk, blockNum * BLOCK_SIZE, SEEK_SET);
-  fwrite(data, BLOCK_SIZE, 1, disk); //overwrites existing data
+  int fread_result = fread(data, BLOCK_SIZE, 1, disk);
+
+  if(fread_result <= 0){
+    fprintf(stderr, "FAILURE: fread() failed to read from the disk.\n");
+    return FALSE;
+  }
+  fclose(disk);
+  return TRUE;
+
 }
 
 void InitLLFS(){
