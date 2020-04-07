@@ -41,24 +41,23 @@ int main(){
     //Parent process
     wait(NULL); //waits for child to end
     printf("Parent will read from disk\n");
-    _Bool result_read =readBlock(block, buffer);
-
-    //Check if same
-    if (result_read){
-      printf("Read Successful :).\n");
-            printf("---> TEST 1 PASSED <---");
-      //printf("Read: %s", buffer);
-      // for(int i = 0; i < 150; i++) {
-      //   if(data[i] != buffer[i]) {
-      //       printf("Test Failed: Data modified while reading/writing :(\n");
-      //       return EXIT_SUCCESS;
-      //   }//if
-      // }//for
-
-    } else{
-      printf("TEST FAILED --> Read failed :(\n");
-      return EXIT_SUCCESS;
-    }
+    // _Bool result_read =readBlock(block, buffer);
+    //
+    // //Check if same
+    // if (result_read){
+    //   printf("Read Successful :).\n");
+    //   //printf("Read: %s", buffer);
+    //   // for(int i = 0; i < 150; i++) {
+    //   //   if(data[i] != buffer[i]) {
+    //   //       printf("Test Failed: Data modified while reading/writing :(\n");
+    //   //       return EXIT_SUCCESS;
+    //   //   }//if
+    //   // }//for
+    //   printf("---> TEST 1 PASSED <---");
+    // } else{
+    //   printf("TEST FAILED --> Read failed :(\n");
+    //   return EXIT_SUCCESS;
+    // }
   }//else of parent process
 
   //should not get here
