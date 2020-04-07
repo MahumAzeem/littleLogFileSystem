@@ -2,7 +2,7 @@ Name: Mahum Azeem
 This is an incomplete project. Features that have been implemented so far:
 1) A disk controller that can read/write from and to the disk (called vdisk in this case)
 2) A bit vector struct and helper methods to set/clear bits. This will be used more in the next steps
-3)
+3) Test 1 checks if writing to disk is working properly
 
 Issues faced:
-1) Seemingly trivial, I could not get bool data type to work although all my googling suggested it should be in the <stdbool.h> library so i ended up defining an enum to deal with that issue.
+1) Seemingly trivial, I could not get bool data type to work so i just used Constants
